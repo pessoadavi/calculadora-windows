@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="author" content="Hcode Treinamentos">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculadora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+    body {
+        background-color:#050505;
+    }
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        
+    }
+    #calculadora {
+        background-color: #B1B1B1;
+        width: 322px;
+        height: 500px;
+        padding: 6px;
+    }
+    #calculadora .btn {
+        margin: 2px;
+        border-radius: 0;
+        min-height: 44px;
+        outline: none;
+        box-shadow: none;
+    }
+    #calculadora .btn:hover {
+        background-color: #BCBCBC;
+    }
+    #calculadora .btn:active {
+        background-color: #909090;
+    }
+    header {
+        height: 205px;
+        font-size: 36px;
+        font-weight: bold;
+        position: relative;
+    }
+    #display {
+        color: #000;
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 48px;
+        font-weight: 600;
+    }
+    .btn-number {
+        background-color: #EFEFEF;
+        font-size: 24px;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-weight: 600;
+    }
+    .btn-others {
+        background-color: #D1D1D1;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="center">
+        <div id="calculadora">
+            <header>
+                <div id="display">
+
+                </div>
+            </header>
+            <section class="container" id="rowt">
+                <div class="row" id="row1">
+                    <button type="button" class="btn btn-others col-sm" value="%">%</button>
+                    <button type="button" class="btn btn-others col-sm" value="√">√</button>
+                    <button type="button" class="btn btn-others col-sm" value="x²">x²</button>
+                    <button type="button" class="btn btn-others col-sm" value="¹/x">¹/x</button>
+                </div>
+                <div class="row" id="row2">
+                    <button type="button" class="btn btn-others col-sm" value="CE">CE</button>
+                    <button type="button" class="btn btn-others col-sm" value="C">C</button>
+                    <button type="button" class="btn btn-others col-sm" value="←">←</button>
+                    <button type="button" class="btn btn-others col-sm" value="÷">÷</button>
+                </div>
+                <div class="row" id="row3">
+                    <button type="button" class="btn btn-number col-sm" value="7">7</button>
+                    <button type="button" class="btn btn-number col-sm" value="8">8</button>
+                    <button type="button" class="btn btn-number col-sm" value="9">9</button>
+                    <button type="button" class="btn btn-others col-sm" value="X">X</button>
+                </div>
+                <div class="row" id="row4">
+                    <button type="button" class="btn btn-number col-sm" value="4">4</button>
+                    <button type="button" class="btn btn-number col-sm" value="5">5</button>
+                    <button type="button" class="btn btn-number col-sm" value="6">6</button>
+                    <button type="button" class="btn btn-others col-sm" value="-">-</button>
+                </div>
+                <div class="row" id="row5">
+                    <button type="button" class="btn btn-number col-sm" value="1">1</button>
+                    <button type="button" class="btn btn-number col-sm" value="2">2</button>
+                    <button type="button" class="btn btn-number col-sm" value="3">3</button>
+                    <button type="button" class="btn btn-others col-sm" value="+">+</button>
+                </div>
+                <div class="row" id="row6">
+                    <button type="button" class="btn btn-others col-sm" value="±">±</button>
+                    <button type="button" class="btn btn-number col-sm" value="0">0</button>
+                    <button type="button" class="btn btn-others col-sm" value=",">,</button>
+                    <button type="button" class="btn btn-others col-sm" value="=">=</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="scripts/controller/calculatorController.js"></script>
+    <script src="scripts/calculator.js"></script>
+</body>
+</html>
