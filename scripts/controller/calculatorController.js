@@ -415,7 +415,6 @@ class calculatorController {
     
     initializeButtons(){
 
-        //let buttons = document.querySelectorAll("#row1 > button, #row2 > button, #row3 > button, #row4 > button, #row5 > button, #row6 > button");
         let buttons = document.querySelectorAll("#rowt [type]");
 
         buttons.forEach((btn, index) => {
