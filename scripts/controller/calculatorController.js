@@ -184,7 +184,6 @@ class calculatorController {
            this.clearInfo();
 
         }
-        console.log(this._memory);
     }
 
     /* Apresenta palavra erro */
@@ -261,7 +260,6 @@ class calculatorController {
         }
 
         this.setLastNumberToDisplay();
-        console.log(this._memory);
 
     }
     operations(value){
@@ -277,7 +275,6 @@ class calculatorController {
                 }
 
                 this.setCurrentValue(value);
-                console.log(value);
 
             } else {
                 this.setPushNewValue(value);
@@ -297,7 +294,6 @@ class calculatorController {
             }
 
         }
-        console.log(this._memory);
 
     }
 
@@ -317,18 +313,19 @@ class calculatorController {
 
         if(this._memory.length > 3){
 
-            last = this._memory.pop();
-            this.setLastNumber = this.getResult();
+            last = this._memory.pop();                              // Retira o último array e guarda na variável
+            this.setLastNumber = this.getResult();                  // calcula o resultado e guarda em lastNumber
 
         } else if (this._memory.length === 3) {
             
-            if(this._memory[1] == "-" && this._memory[2] < 0) {
-                this._memory[1] = '+';
-                this._memory[2] = -1 * this._memory[2];  
+            if(this._memory[1] == "-" && this._memory[2] < 0) {     // Correção de bug de valores negativos (ex: 3 - (-4))
+                this._memory[1] = '+';                              // menos com menos é mais 
+                this._memory[2] = -1 * this._memory[2];             // converter o terceiro termo em positivo
 
             } 
 
-            this.setLastNumber = this.getLastItem(false);
+            this.setLastNumber = this.getLastItem(false);           // calcula o resultado e guarda em lastNumber
+
 
         }
 
@@ -337,10 +334,8 @@ class calculatorController {
         if(last == '%'){
             result /= 100;
             this._memory = [result];
-            console.log(this._memory);
         } else {
             this._memory = [result];
-            console.log(this._memory);
 
         }
 
@@ -360,7 +355,7 @@ class calculatorController {
 
         for(let i = this._memory.length - 1 ; i>=0 ; i--){
 
-            if(this.isOperator(this._memory[i]) == isOperator){
+            if(this.isOperator(this._memory[i]) == isOperator){         // Confere se o valor da array é um operador
 
                 lastItem = this._memory[i];
                 break;
@@ -369,7 +364,7 @@ class calculatorController {
         }
 
         if(!lastItem){
-            lastItem = (isOperator) ? this.getLastOperator : this.getLastNumber;
+            lastItem = (isOperator) ? this.getLastOperator : this.getLastNumber;    // Confere se o último item é operador e salva na variável apropriada
         }
 
         return lastItem;
@@ -409,7 +404,7 @@ class calculatorController {
 
     /* Verifica se o item na memória é um operador */
     isOperator(operador) {
-        return (['+','-','*','/','%'].indexOf(operador) > -1);  // Retorna true para resultado = 1 > -1 
+        return (['+','-','*','/','%'].indexOf(operador) > -1);  // Retorna true para resultado = x > -1 
     }
     
     /* Toma o último valor do array */
@@ -420,7 +415,8 @@ class calculatorController {
     
     initializeButtons(){
 
-        let buttons = document.querySelectorAll("#row1 > button, #row2 > button, #row3 > button, #row4 > button, #row5 > button, #row6 > button");
+        //let buttons = document.querySelectorAll("#row1 > button, #row2 > button, #row3 > button, #row4 > button, #row5 > button, #row6 > button");
+        let buttons = document.querySelectorAll("#rowt [type]");
 
         buttons.forEach((btn, index) => {
             btn.addEventListener('click', events =>{
